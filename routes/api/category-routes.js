@@ -33,8 +33,25 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-router.post('/', (req, res) => {
-  // TODO: create a new category
+router.post('/', async (req, res) => {
+  // create a new category
+  /* req.body should look like this...
+    {
+      "category_name": "Sports Equipment"
+    }
+  */
+    if (req.body.category_name) {
+      try {
+        const categoryData = await Category.create(req.body);
+        res.status(200).json(categoryData);
+      } catch(err) {
+        console.log(err);
+        res.status(400).json(err);
+      };
+    }
+    else {
+      console.log("You must enter a category_name");
+    }
 });
 
 router.put('/:id', (req, res) => {
