@@ -33,8 +33,25 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-router.post('/', (req, res) => {
-  // TODO: create a new tag
+router.post('/', async (req, res) => {
+  // create a new tag
+  /* req.body should look like this...
+    {
+      "tag_name": "sports"
+    }
+  */
+    if (req.body.tag_name) {
+      try {
+        const tagData = await Tag.create(req.body);
+        res.status(200).json(tagData);
+      } catch(err) {
+        console.log(err);
+        res.status(400).json(err);
+      };
+    }
+    else {
+      console.log("You must enter a tag_name");
+    }
 });
 
 router.put('/:id', (req, res) => {
