@@ -55,7 +55,25 @@ router.post('/', async (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-  // TODO: update a tag's name by its `id` value
+  /* req.body should look like this...
+    {
+      "tag_name": "capsule"
+    }
+  */
+  Tag.update(
+    {
+      tag_name: req.body.tag_name,
+    },
+    {
+      where: {
+        id: req.params.id,
+      },
+    }
+  )
+    .then((updatedCategory) => {
+      res.json(updatedCategory);
+    })
+    .catch((err) => res.json(err));
 });
 
 router.delete('/:id', (req, res) => {
