@@ -7,8 +7,10 @@
 
   A user is able to use this application to creat and seed a mock e-commerce database. Next, they can open up a server and test various GET, POST, PUT, and DELETE routes on a variety of products, tags, and categories from the mock database. This was created to showcase an understanding of MySQL, Sequelize, and Express.js among a variety of basic back end coding.
 
-  Screenshot or GIF of final output:  
-  ![screenshot or gif](assets/Screenshot.jpg)
+  Screenshot of final output:  
+  ![screenshot or gif](assets/Screenshot.jpg)  
+  Walkthrough Video of application usage:  
+  https://drive.google.com/file/d/1yLtP_p7bxNqrkWQ5RWUqAmxICpReAR9d/view  
 
   ## Table of Contents
   * [Dependencies](#dependencies)
